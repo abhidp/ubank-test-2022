@@ -1,5 +1,5 @@
 import HomePage from '../pageobjects/homePage'
-import searchResultspage from '../pageobjects/searchResultspage'
+import searchResultsPage from '../pageobjects/searchResultsPage'
 
 const itemToSearch: string = 'xbox'
 
@@ -14,6 +14,6 @@ describe('Search for item in eBay homepage', () => {
   it('should search for an item in search bar', async () => {
     await HomePage.search(itemToSearch)
 
-    expect(searchResultspage.searchResults).toBeDisplayed()
+    expect(searchResultsPage.searchResults).toBeDisplayed()
   })
 })

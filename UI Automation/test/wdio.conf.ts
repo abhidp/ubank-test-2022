@@ -26,19 +26,7 @@ export const config: Options.Testrunner = {
   connectionRetryCount: 3,
   services: ['chromedriver'],
   framework: 'mocha',
-  reporters: [
-    'spec',
-    [
-      'mochawesome',
-      {
-        outputDir: './results',
-        saveHtml: true,
-        outputFileFormat: function (opts) {
-          return `results-${opts.cid}.${opts.capabilities}.json`
-        }
-      }
-    ]
-  ],
+  reporters: ['spec'],
   mochaOpts: {
     ui: 'bdd',
     timeout: 60000
