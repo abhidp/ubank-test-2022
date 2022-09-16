@@ -18,22 +18,27 @@ export const config: Options.Testrunner = {
       acceptInsecureCerts: true
     }
   ],
-  logLevel: 'error',
+  logLevel: 'silent',
   bail: 0,
-  baseUrl: 'https://www.ebay.com.au/',
+  baseUrl: 'https://www.ebay.com.au',
   waitforTimeout: 10000,
   connectionRetryTimeout: 120000,
   connectionRetryCount: 3,
   services: ['chromedriver'],
   framework: 'mocha',
-  reporters: ['spec'],
+  reporters: [
+    'spec',
+    [
+      'mochawesome',
+      {
+        outputDir: './results',
+        outputFileFormat: () => `results.json`
+      }
+    ]
+  ],
   mochaOpts: {
     ui: 'bdd',
     timeout: 60000
-  },
-  onComplete: function (exitCode, config, capabilities, results) {
-    const mergeResults = require('wdio-mochawesome-reporter/mergeResults')
-    mergeResults('./results', 'results-*')
   }
   /**
    * Gets executed once before all workers get launched.

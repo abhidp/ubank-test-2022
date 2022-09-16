@@ -4,7 +4,6 @@ export default class Page {
    * @param path path of the sub page (e.g. /path/to/page.html)
    */
   public open(path: string) {
-    const url = `https://www.ebay.com.au${path}`
-    return browser.url(url)
+    return browser.url(path)
   }
 }
