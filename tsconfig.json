@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "types": [
+      "mocha",
+      "chai",
+      "node",
+      "global"
+    ],
+  }
+}

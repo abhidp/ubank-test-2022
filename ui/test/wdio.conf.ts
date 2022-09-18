@@ -32,7 +32,7 @@ export const config: Options.Testrunner = {
       'mochawesome',
       {
         outputDir: './results',
-        outputFileFormat: () => `results.json`
+        outputFileFormat: () => `ui-report.json`
       }
     ]
   ],

@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-09-18T12:59:41.581Z",
+    "end": "2022-09-18T12:59:46.367Z",
+    "duration": 4786,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f3123043-8176-4738-9852-85c20bb006d8",
+      "title": "",
+      "fullFile": "/Users/abhidaspatnaik/git/ubank-test-2022/api/test/pets-crud.ts",
+      "file": "/api/test/pets-crud.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9df2bdec-3ce6-413d-8f7d-03a8acdd0ca5",
+          "title": "CRUD pet endpoints",
+          "fullFile": "/Users/abhidaspatnaik/git/ubank-test-2022/api/test/pets-crud.ts",
+          "file": "/api/test/pets-crud.ts",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should POST a pet",
+              "fullTitle": "CRUD pet endpoints should POST a pet",
+              "timedOut": false,
+              "duration": 999,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "return __awaiter(void 0, void 0, void 0, function () {\n            var postUrl, body, response;\n            return __generator(this, function (_a) {\n                switch (_a.label) {\n                    case 0:\n                        postUrl = '/v2/pet';\n                        body = {\n                            id: Date.now(),\n                            name: 'Max'\n                        };\n                        return [4 /*yield*/, (0, supertest_1.default)(baseUrl)\n                                .post(postUrl)\n                                .send(body)\n                                .set('accept', 'application/json')\n                                .set('content-type', 'application/json')];\n                    case 1:\n                        response = _a.sent();\n                        expect(response.status).to.equal(200);\n                        expect(response.headers['content-type']).to.equal('application/json');\n                        expect(response.body).to.have.any.keys('id', 'name', 'photoUrls', 'tags');\n                        expect(response.body).to.include({ name: body.name });\n                        id = response.body.id;\n                        name = response.body.name;\n                        return [2 /*return*/];\n                }\n            });\n        });",
+              "err": {},
+              "uuid": "398a58b3-e0ed-4c3e-89cb-c5e97cea5c89",
+              "parentUUID": "9df2bdec-3ce6-413d-8f7d-03a8acdd0ca5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should GET the pet by id",
+              "fullTitle": "CRUD pet endpoints should GET the pet by id",
+              "timedOut": false,
+              "duration": 944,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "return __awaiter(void 0, void 0, void 0, function () {\n            var getUrl, response;\n            return __generator(this, function (_a) {\n                switch (_a.label) {\n                    case 0:\n                        getUrl = \"/v2/pet/\".concat(id);\n                        return [4 /*yield*/, (0, supertest_1.default)(baseUrl)\n                                .get(getUrl)\n                                .set('accept', 'application/json')\n                                .set('content-type', 'application/json')];\n                    case 1:\n                        response = _a.sent();\n                        expect(response.status).to.equal(200);\n                        expect(response.headers['content-type']).to.equal('application/json');\n                        expect(response.body).to.have.any.keys('id', 'name', 'photoUrls', 'tags');\n                        expect(response.body).to.include({ name: name });\n                        return [2 /*return*/];\n                }\n            });\n        });",
+              "err": {},
+              "uuid": "1d1a21e7-9958-4d65-a99c-79db772593b0",
+              "parentUUID": "9df2bdec-3ce6-413d-8f7d-03a8acdd0ca5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should PUT the pet",
+              "fullTitle": "CRUD pet endpoints should PUT the pet",
+              "timedOut": false,
+              "duration": 942,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "return __awaiter(void 0, void 0, void 0, function () {\n            var putUrl, body, response;\n            return __generator(this, function (_a) {\n                switch (_a.label) {\n                    case 0:\n                        putUrl = \"/v2/pet\";\n                        body = {\n                            id: id,\n                            name: 'Leo'\n                        };\n                        return [4 /*yield*/, (0, supertest_1.default)(baseUrl)\n                                .put(putUrl)\n                                .set('accept', 'application/json')\n                                .set('content-type', 'application/json')\n                                .send(body)];\n                    case 1:\n                        response = _a.sent();\n                        expect(response.status).to.equal(200);\n                        expect(response.headers['content-type']).to.equal('application/json');\n                        expect(response.body).to.have.any.keys('id', 'name', 'photoUrls', 'tags');\n                        expect(response.body).to.include({ name: body.name });\n                        return [2 /*return*/];\n                }\n            });\n        });",
+              "err": {},
+              "uuid": "05de6332-63eb-419e-8943-4cbc039b179e",
+              "parentUUID": "9df2bdec-3ce6-413d-8f7d-03a8acdd0ca5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should DELETE the pet by id",
+              "fullTitle": "CRUD pet endpoints should DELETE the pet by id",
+              "timedOut": false,
+              "duration": 953,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "return __awaiter(void 0, void 0, void 0, function () {\n            var deleteUrl, response;\n            return __generator(this, function (_a) {\n                switch (_a.label) {\n                    case 0:\n                        deleteUrl = \"/v2/pet/\".concat(id);\n                        return [4 /*yield*/, (0, supertest_1.default)(baseUrl)\n                                .delete(deleteUrl)\n                                .set('accept', 'application/json')\n                                .set('api_key', 'special-key')];\n                    case 1:\n                        response = _a.sent();\n                        expect(response.status).to.equal(200);\n                        expect(response.headers['content-type']).to.equal('application/json');\n                        expect(response.body).to.have.any.keys('code', 'type', 'messsage');\n                        expect(response.body).to.include({ message: \"\".concat(id) });\n                        return [2 /*return*/];\n                }\n            });\n        });",
+              "err": {},
+              "uuid": "a796b1c9-d9da-49ca-b9f5-4497fe169ec5",
+              "parentUUID": "9df2bdec-3ce6-413d-8f7d-03a8acdd0ca5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show 404 status code for DELETED pet",
+              "fullTitle": "CRUD pet endpoints should show 404 status code for DELETED pet",
+              "timedOut": false,
+              "duration": 939,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "return __awaiter(void 0, void 0, void 0, function () {\n            var getUrl, response;\n            return __generator(this, function (_a) {\n                switch (_a.label) {\n                    case 0:\n                        getUrl = \"/v2/pet/\".concat(id);\n                        return [4 /*yield*/, (0, supertest_1.default)(baseUrl)\n                                .get(getUrl)\n                                .set('accept', 'application/json')\n                                .set('content-type', 'application/json')];\n                    case 1:\n                        response = _a.sent();\n                        expect(response.status).to.equal(404);\n                        expect(response.headers['content-type']).to.equal('application/json');\n                        expect(response.body).to.have.any.keys('code', 'type', 'messsage');\n                        expect(response.body).to.include({ message: 'Pet not found' });\n                        return [2 /*return*/];\n                }\n            });\n        });",
+              "err": {},
+              "uuid": "3e3a236f-a3c7-4ccd-950f-b96657cb2b24",
+              "parentUUID": "9df2bdec-3ce6-413d-8f7d-03a8acdd0ca5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "398a58b3-e0ed-4c3e-89cb-c5e97cea5c89",
+            "1d1a21e7-9958-4d65-a99c-79db772593b0",
+            "05de6332-63eb-419e-8943-4cbc039b179e",
+            "a796b1c9-d9da-49ca-b9f5-4497fe169ec5",
+            "3e3a236f-a3c7-4ccd-950f-b96657cb2b24"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4777,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.0.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "api-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "api/report",
+        "reportFilename": "api-report",
+        "reportTitle": "API UBANK Test 2022",
+        "quiet": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

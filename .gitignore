@@ -1,4 +1,4 @@
 node_modules
 results
-reports
 .DS_Store
+ui/results
